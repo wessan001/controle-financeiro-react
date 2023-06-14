@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import * as C from './styles';
+import Grid from '../Grid';
 
-const Form = ({handleAdd}) => {
+const Form = ({handleAdd, transactionsList, setTransactionsList}) => {
     const [desc, setDesc] = useState("");
     const [amount, setAmount] = useState ("");
-    const [isExpense, setExpense] = useState(false);
+    const [isExpense, setExpense] = useState(true);
 
     const generateID = () => Math.round(Math.random() * 1000);
 
@@ -68,6 +69,7 @@ const Form = ({handleAdd}) => {
         <C.Button onClick={handleSave}>ADICIONAR</C.Button>
         
     </C.Container>
+    <Grid itens={transactionsList} setItens={setTransactionsList} />
     </>
   )
 }

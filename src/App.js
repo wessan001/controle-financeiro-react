@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React, { useEffect, useState } from "react";
 import GlobalStyle from "./styles/global";
-import Header from './components/Header';
-import Resume from './components/Resume';
-import Form from './components/Form';
+import Header from "./components/Header";
+import Resume from "./components/Resume";
+import Form from "./components/Form";
 
 const App = () => {
   const data = localStorage.getItem("transactions");
@@ -38,17 +38,20 @@ const App = () => {
     setTransactionsList(newArrayTransactions);
 
     localStorage.setItem("transactions", JSON.stringify(newArrayTransactions));
-
   };
 
   return (
     <>
-    <Header />
-    <Resume income={income} expense={expense} total={total} />
-    <Form />
-    <GlobalStyle />
+      <Header />
+      <Resume income={income} expense={expense} total={total} />
+      <Form
+        handleAdd={handleAdd}
+        transactionsList={transactionsList}
+        setTransactionsList={setTransactionsList}
+      />
+      <GlobalStyle />
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
